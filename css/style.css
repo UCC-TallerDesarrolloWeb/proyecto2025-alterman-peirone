@@ -1,11 +1,16 @@
-/* Header */
+/* Header fijo */
 header {
+  position: fixed;       /* ahora queda fijo arriba */
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
   background-color: #000;
   color: #f5f5dc;
+  z-index: 1000;         /* asegura que quede sobre todo lo demás */
 }
 
 header .logo {
@@ -59,6 +64,7 @@ header .logo {
 main {
   padding: 40px;
   text-align: center;
+  margin-top: 100px; /* espacio para que no tape el header fijo */
 }
 
 main h1 {
@@ -69,6 +75,7 @@ main h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  margin: 40px 0;
 }
 
 .producto img {
@@ -101,12 +108,9 @@ footer h3 {
   margin-bottom: 10px;
 }
 
+/* Scroll suave */
 html {
-  scroll-behavior: smooth; /* hace que el scroll sea suave */
-}
-
-.productos {
-  margin: 40px 0;
+  scroll-behavior: smooth;
 }
 
 .productos h2 {
@@ -114,13 +118,10 @@ html {
   color: #000;
 }
 
-
-
-
 /* Responsive */
 @media (max-width: 768px) {
   .productos {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* en móvil una sola columna */
   }
 
   footer {
