@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MiTienda - Inicio</title>
+  <title>CrewLab - Inicio</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- Header -->
   <header>
-    <a href="main.html" class="logo">MiTienda</a>
+    <a href="main.html" class="logo">CrewLab</a>
     <div class="acciones">
       <div class="carrito">🛒</div>
       <div class="menu-hamburguesa" id="menu-btn">☰</div>
 
-      <!-- Menú desplegable dentro de .acciones -->
+      <!-- Menú desplegable -->
       <nav class="menu-desplegable" id="menu">
         <ul>
           <li><a href="remeras.html">Remeras</a></li>
@@ -26,34 +26,73 @@
     </div>
   </header>
 
-  <!-- Productos destacados -->
-  <main>
-    <h1>Más vendidos por sección</h1>
-    <section class="productos">
-      <div class="producto">
-        <img src="REMERAS/Remera Azul Design.jpg" alt="Remera">
-        <h2>Remera más vendida</h2>
-        <p>$10.000</p>
-        <a href="remeras.html"><button>Ver más</button></a>
-      </div>
-      <div class="producto">
-        <img src="Buzos/buzo gris desgastado.jpg" alt="Buzo">
-        <h2>Buzo más vendido</h2>
-        <p>$15.000</p>
-        <a href="buzos.html"><button>Ver más</button></a>
-      </div>
-      <div class="producto">
-        <img src="ZAPATILLAS/Adidas samba clasicas negras.avif" alt="Zapatilla">
-        <h2>Zapatilla más vendida</h2>
-        <p>$30.000</p>
-        <a href="zapatillas.html"><button>Ver más</button></a>
-      </div>
-    </section>
-  </main>
+  <!-- Carrusel de promociones -->
+  <section class="carrusel">
+    <div class="slides">
+      <img src="CARRUSEL OFERTAS/promocion1.jpg" alt="Promoción 1">
+      <img src="CARRUSEL OFERTAS/promocion2.png" alt="Promoción 2">
+      <img src="CARRUSEL OFERTAS/promocion3.png" alt="Promoción 3">
+      <img src="CARRUSEL OFERTAS/promocion4.png" alt="Promoción 4">
+    </div>
+  </section>
+
+ <!-- Productos más vendidos -->
+<main>
+  <h1>Más vendidos por sección</h1>
+  <section class="productos">
+    <!-- Remeras -->
+    <div class="producto">
+      <img src="REMERAS/Remera Azul Design.jpg" alt="Remera">
+      <h2>Remeras</h2>
+      <p>$10.000</p>
+      <a href="remeras.html"><button>Ver más</button></a>
+    </div>
+
+    <!-- Buzos -->
+    <div class="producto">
+      <img src="Buzos/buzo gris desgastado.jpg" alt="Buzo">
+      <h2>Buzos</h2>
+      <p>$15.000</p>
+      <a href="buzos.html"><button>Ver más</button></a>
+    </div>
+
+    <!-- Zapatillas -->
+    <div class="producto">
+      <img src="ZAPATILLAS/Adidas samba clasicas negras.avif" alt="Zapatilla">
+      <h2>Zapatillas</h2>
+      <p>$30.000</p>
+      <a href="zapatillas.html"><button>Ver más</button></a>
+    </div>
+
+    <!-- Pantalones (nuevo) -->
+    <div class="producto">
+      <img src="PANTALONES/Cargo color marron.jpg" alt="Pantalón">
+      <h2>Pantalones</h2>
+      <p>$20.000</p>
+      <a href="pantalones.html"><button>Ver más</button></a>
+    </div>
+  </section>
+</main>
+
+
+  <!-- Sección Sobre nosotros -->
+  <section class="sobre-nosotros">
+    <h2>Sobre nosotros</h2>
+    <p>En CrewLab creemos en el estilo urbano y la calidad premium. Ofrecemos ropa y calzado para quienes buscan comodidad y autenticidad.</p>
+    <div class="contacto">
+      <p>📱 Tel: +54 9 351 555-5555</p>
+      <p>✉️ Email: contacto@crewlab.com</p>
+    </div>
+    <div class="redes">
+      <a href="#"><img src="LOGOS/logo_facebook.svg" alt="Facebook"></a>
+      <a href="#"><img src="LOGOS/logo_ig.svg" alt="Instagram"></a>
+      <a href="#"><img src="LOGOS/logo_wasap.svg" alt="Whatsapp"></a>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 MiTienda - Todos los derechos reservados</p>
+    <p>© 2025 CrewLab - Todos los derechos reservados</p>
   </footer>
 
   <script src="js/script.js"></script>

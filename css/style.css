@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+
 /* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 
 /* Header */
 header {
@@ -22,7 +30,8 @@ header {
   font-size: 24px;
   font-weight: bold;
   color: #f5f5dc;
-  text-decoration: none; /* 👈 para que no aparezca subrayado */
+  text-decoration: none;  /*para que no aparezca subrayado */
+  font-family: 'Arial Black', sans-serif; 
 }
 
 .logo:hover {
@@ -147,3 +156,64 @@ footer {
   padding: 15px 10px;
   margin-top: 40px;
 }
+
+/* Carrusel */
+.carrusel {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.carrusel .slides {
+  display: flex;
+  width: 400%;
+  animation: slide 16s infinite;
+}
+
+.carrusel img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+/* Animación carrusel */
+@keyframes slide {
+  0% { margin-left: 0; }
+  20% { margin-left: 0; }
+  25% { margin-left: -100%; }
+  45% { margin-left: -100%; }
+  50% { margin-left: -200%; }
+  70% { margin-left: -200%; }
+  75% { margin-left: -300%; }
+  95% { margin-left: -300%; }
+  100% { margin-left: 0; }
+}
+
+/* Sección Sobre nosotros */
+.sobre-nosotros {
+  background: #f5eedc;
+  color: #000;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.sobre-nosotros h2 {
+  margin-bottom: 20px;
+}
+
+.sobre-nosotros p {
+  margin: 5px 0;
+}
+
+.redes {
+  margin-top: 20px;
+}
+
+.redes img {
+  width: 32px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
