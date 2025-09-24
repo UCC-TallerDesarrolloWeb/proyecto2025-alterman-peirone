@@ -21,7 +21,14 @@ header {
 .logo {
   font-size: 24px;
   font-weight: bold;
+  color: #f5f5dc;
+  text-decoration: none; /* 👈 para que no aparezca subrayado */
 }
+
+.logo:hover {
+  text-decoration: underline; /* opcional: un subrayado al pasar el mouse */
+}
+
 
 .acciones {
   display: flex;
