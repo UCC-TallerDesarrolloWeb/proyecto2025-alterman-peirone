@@ -1,16 +1,16 @@
-/* Header fijo */
+/* Header */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
   background-color: #000;
   color: #f5f5dc;
-  z-index: 1000;
+  position: fixed;   /* 👈 encabezado fijo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;     /* queda por encima del resto */
 }
 
 header .logo {
@@ -18,7 +18,6 @@ header .logo {
   font-weight: bold;
 }
 
-/* Contenedor a la derecha (carrito + menú ☰) */
 .acciones {
   display: flex;
   gap: 20px;
@@ -33,20 +32,17 @@ header .logo {
 .menu-hamburguesa {
   font-size: 1.8em;
   cursor: pointer;
-  color: #f5f5dc;  /* aseguramos que se vea crema */
-  display: inline-block;
 }
 
-/* Menú desplegable */
+/* Menú desplegable oculto */
 .menu-desplegable {
   display: none;
   position: absolute;
-  top: 70px;     /* debajo del header fijo */
+  top: 60px;
   right: 30px;
   background-color: #000;
   padding: 10px;
   border-radius: 8px;
-  z-index: 1100; /* arriba del resto */
 }
 
 .menu-desplegable ul {
@@ -64,11 +60,15 @@ header .logo {
   text-decoration: none;
 }
 
-/* Contenido principal */
+/* Productos */
 main {
   padding: 40px;
   text-align: center;
-  margin-top: 100px; /* espacio para que no tape el header */
+  margin-top: 100px; /* 👈 para que el contenido no quede tapado por el header */
+}
+
+main h1 {
+  margin-bottom: 20px;
 }
 
 .productos {
@@ -79,12 +79,13 @@ main {
 }
 
 .producto img {
-  width: 70%;
+  width: 70%; /* más pequeñas */
   border-radius: 8px;
 }
 
 .producto h2 {
   margin: 10px 0;
+  color: #000;
 }
 
 .producto button {
@@ -108,9 +109,8 @@ footer h3 {
   margin-bottom: 10px;
 }
 
-/* Scroll suave */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* hace que el scroll sea suave */
 }
 
 /* Responsive */
