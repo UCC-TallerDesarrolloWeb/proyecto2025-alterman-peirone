@@ -34,16 +34,18 @@ header .logo {
   cursor: pointer;
 }
 
-/* Menú desplegable oculto */
+/* Menú desplegable corregido */
 .menu-desplegable {
   display: none;
   position: absolute;
-  top: 60px;
+  top: 70px;             /* se abre justo debajo del header */
   right: 30px;
   background-color: #000;
   padding: 10px;
   border-radius: 8px;
+  z-index: 1100;         /* queda encima del header y del resto */
 }
+
 
 .menu-desplegable ul {
   list-style: none;
