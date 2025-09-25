@@ -181,3 +181,26 @@ document.addEventListener("DOMContentLoaded", () => {
   // guardar antes de salir (por si acaso)
   window.addEventListener('beforeunload', saveCart);
 });
+
+
+// Galería hover
+document.querySelectorAll('.hover-gallery').forEach(gallery => {
+  let imgs = gallery.querySelectorAll('img');
+  let index = 0;
+  let interval;
+
+  gallery.addEventListener('mouseenter', () => {
+    interval = setInterval(() => {
+      imgs[index].classList.remove('activa');
+      index = (index + 1) % imgs.length;
+      imgs[index].classList.add('activa');
+    }, 500); // cambia cada 1 segundo
+  });
+
+  gallery.addEventListener('mouseleave', () => {
+    clearInterval(interval);
+    imgs.forEach(img => img.classList.remove('activa'));
+    imgs[0].classList.add('activa'); // vuelve a la primera
+    index = 0;
+  });
+});
