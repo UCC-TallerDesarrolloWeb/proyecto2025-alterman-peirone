@@ -319,3 +319,43 @@ footer {
 .oculto {
   display: none;
 }
+
+
+/* Hover entre 2 imágenes */
+.producto-img {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.producto-img img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Imagen principal visible por defecto */
+.producto-img .img-principal {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Imagen secundaria oculta por defecto */
+.producto-img .img-hover {
+  opacity: 0;
+  z-index: 2;
+}
+
+/* Al pasar el mouse */
+.producto-img:hover .img-principal {
+  opacity: 0;
+}
+
+.producto-img:hover .img-hover {
+  opacity: 1;
+}
