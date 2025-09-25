@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
-
 /* Reset básico */
 * {
   margin: 0;
@@ -11,7 +10,6 @@
 body {
   font-family: 'Montserrat', sans-serif;
 }
-
 
 /* Header */
 header {
@@ -30,24 +28,24 @@ header {
   font-size: 24px;
   font-weight: bold;
   color: #f5f5dc;
-  text-decoration: none;  /*para que no aparezca subrayado */
+  text-decoration: none;
   font-family: 'Arial Black', sans-serif; 
 }
 
 .logo:hover {
-  text-decoration: underline; /* opcional: un subrayado al pasar el mouse */
+  text-decoration: underline;
 }
-
 
 .acciones {
   display: flex;
   align-items: center;
-  position: relative; /* importante para el menú */
+  position: relative;
 }
 
 .carrito {
   font-size: 22px;
   margin-left: 15px;
+  cursor: pointer;
 }
 
 /* Botón menú hamburguesa */
@@ -67,8 +65,6 @@ header {
   padding: 10px;
   border-radius: 8px;
   z-index: 1100;
-
-  /* Estado inicial oculto */
   opacity: 0;
   transform: translateY(-10px);
   visibility: hidden;
@@ -92,7 +88,6 @@ header {
   text-decoration: underline;
 }
 
-/* Estado visible del menú */
 .menu-desplegable.activo {
   opacity: 1;
   transform: translateY(0);
@@ -114,7 +109,7 @@ h1 {
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
-  align-items: stretch; /* importante para que las tarjetas se estiren a la misma altura */
+  align-items: stretch;
 }
 
 .producto {
@@ -123,15 +118,15 @@ h1 {
   padding: 20px;
   width: 250px;
   display: flex;
-  flex-direction: column; /* organiza los hijos verticalmente */
-  justify-content: space-between; /* distribuye espacio entre elementos */
-  height: 450px; /* altura fija para todas las tarjetas */
+  flex-direction: column;
+  justify-content: space-between;
+  height: 450px;
 }
 
 .producto img {
   width: 100%;
-  height: 200px; /* altura fija para todas las imágenes */
-  object-fit: cover; /* recorta la imagen si es necesario, manteniendo proporción */
+  height: 200px;
+  object-fit: cover;
   border-radius: 6px;
 }
 
@@ -178,7 +173,6 @@ footer {
   object-fit: cover;
 }
 
-/* Animación carrusel */
 @keyframes slide {
   0% { margin-left: 0; }
   20% { margin-left: 0; }
@@ -191,7 +185,7 @@ footer {
   100% { margin-left: 0; }
 }
 
-/* Sección Sobre nosotros */
+/* Sobre nosotros */
 .sobre-nosotros {
   background: #f5eedc;
   color: #000;
@@ -217,3 +211,111 @@ footer {
   cursor: pointer;
 }
 
+.carrito {
+  position: relative;
+}
+.carrito-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #ff3b30;
+  color: #fff;
+  border-radius: 12px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#carrito-modal {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 350px;
+  background: #fff;      /* Fondo blanco */
+  color: #000;           /* Texto negro */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  padding: 1rem;
+  z-index: 9999;
+}
+
+#carrito-modal.oculto {
+  display: none;
+}
+
+#carrito-modal h2 {
+  margin-top: 0;
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+#carrito-lista {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto; /* scroll si se llena */
+}
+
+.carrito-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.carrito-item .item-info {
+  flex-grow: 1;
+}
+
+.carrito-item .item-ctrls {
+  display: flex;
+  align-items: center;
+}
+
+.carrito-item button {
+  margin: 0 3px;
+  padding: 3px 6px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#carrito-total {
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: right;
+}
+
+#cerrar-carrito {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.carrito-badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+
+.oculto {
+  display: none;
+}

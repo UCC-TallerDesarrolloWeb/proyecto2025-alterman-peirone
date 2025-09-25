@@ -9,9 +9,12 @@
 <body>
   <!-- Header -->
   <header>
-    <a href="main.html" class="logo">CrewLab</a>
+    <a href="index.html" class="logo">CrewLab</a>
     <div class="acciones">
+      <!-- Ícono carrito -->
       <div class="carrito">🛒</div>
+
+      <!-- Menú hamburguesa -->
       <div class="menu-hamburguesa" id="menu-btn">☰</div>
 
       <!-- Menú desplegable -->
@@ -26,75 +29,77 @@
     </div>
   </header>
 
-  <!-- Carrusel de promociones -->
+  <!-- Carrusel -->
   <section class="carrusel">
-    <div class="slides">
-      <img src="CARRUSEL OFERTAS/promocion1.jpg" alt="Promoción 1">
-      <img src="CARRUSEL OFERTAS/promocion2.png" alt="Promoción 2">
-      <img src="CARRUSEL OFERTAS/promocion3.png" alt="Promoción 3">
-      <img src="CARRUSEL OFERTAS/promocion4.png" alt="Promoción 4">
-    </div>
-  </section>
+  <div class="slides">
+    <img src="CARRUSEL OFERTAS/promocion1.jpg" alt="Promoción 1">
+    <img src="CARRUSEL OFERTAS/promocion2.png" alt="Promoción 2">
+    <img src="CARRUSEL OFERTAS/promocion3.png" alt="Promoción 3">
+    <img src="CARRUSEL OFERTAS/promocion4.png" alt="Promoción 4">
+  </div>
+</section>
 
- <!-- Productos más vendidos -->
-<main>
-  <h1>Más vendidos por sección</h1>
-  <section class="productos">
-    <!-- Remeras -->
-    <div class="producto">
-      <img src="REMERAS/Remera Azul Design.jpg" alt="Remera">
-      <h2>Remeras</h2>
-      <p>$10.000</p>
-      <a href="remeras.html"><button>Ver más</button></a>
-    </div>
 
-    <!-- Buzos -->
-    <div class="producto">
-      <img src="Buzos/buzo gris desgastado.jpg" alt="Buzo">
-      <h2>Buzos</h2>
-      <p>$15.000</p>
-      <a href="buzos.html"><button>Ver más</button></a>
-    </div>
+  <!-- Productos principales -->
+  <main>
+    <h1>Nuestros Productos</h1>
+    <section class="productos">
+      <div class="producto">
+        <img src="REMERAS/Remera Azul Design.jpg" alt="Remera Azul">
+        <h2>Remera Azul Design</h2>
+        <p>$10.000</p>
+        <button class="add-to-cart" data-nombre="Remera Azul Design" data-precio="10000">
+          Agregar al carrito
+        </button>
+      </div>
 
-    <!-- Zapatillas -->
-    <div class="producto">
-      <img src="ZAPATILLAS/Adidas samba clasicas negras.avif" alt="Zapatilla">
-      <h2>Zapatillas</h2>
-      <p>$30.000</p>
-      <a href="zapatillas.html"><button>Ver más</button></a>
-    </div>
+      <div class="producto">
+        <img src="BUZOS/buzo negro desgastado.jpg" alt="Buzo Negro Urban">
+        <h2>Buzo Negro Urban</h2>
+        <p>$20.000</p>
+        <button class="add-to-cart" data-nombre="Buzo Negro Urban" data-precio="20000">
+          Agregar al carrito
+        </button>
+      </div>
 
-    <!-- Pantalones (nuevo) -->
-    <div class="producto">
-      <img src="PANTALONES/Cargo color marron.jpg" alt="Pantalón">
-      <h2>Pantalones</h2>
-      <p>$20.000</p>
-      <a href="pantalones.html"><button>Ver más</button></a>
-    </div>
-  </section>
-</main>
+      <div class="producto">
+        <img src="PANTALONES/Cargo color Negro (con puño).jpg" alt="Pantalón Cargo">
+        <h2>Pantalón Cargo</h2>
+        <p>$18.500</p>
+        <button class="add-to-cart" data-nombre="Pantalón Cargo" data-precio="18500">
+          Agregar al carrito
+        </button>
+      </div>
 
+      <div class="producto">
+        <img src="ZAPATILLAS/Vans Knu blanco-negro.jpg" alt="Zapatillas Blancas">
+        <h2>Zapatillas Blancas</h2>
+        <p>$25.000</p>
+        <button class="add-to-cart" data-nombre="Zapatillas Blancas" data-precio="25000">
+          Agregar al carrito
+        </button>
+      </div>
+    </section>
+  </main>
 
   <!-- Sección Sobre nosotros -->
   <section class="sobre-nosotros">
-    <h2>Sobre nosotros</h2>
-    <p>En CrewLab creemos en el estilo urbano y la calidad premium. Ofrecemos ropa y calzado para quienes buscan comodidad y autenticidad.</p>
-    <div class="contacto">
-      <p>📱 Tel: +54 9 351 555-5555</p>
-      <p>✉️ Email: contacto@crewlab.com</p>
-    </div>
+    <h2>Sobre Nosotros</h2>
+    <p>En CrewLab nos apasiona la moda urbana y la comodidad.</p>
+    <p>Diseñamos y seleccionamos prendas de alta calidad para que te sientas único en tu estilo.</p>
     <div class="redes">
-      <a href="#"><img src="LOGOS/logo_facebook.svg" alt="Facebook"></a>
-      <a href="#"><img src="LOGOS/logo_ig.svg" alt="Instagram"></a>
-      <a href="#"><img src="LOGOS/logo_wasap.svg" alt="Whatsapp"></a>
+      <img src="iconos/facebook.png" alt="Facebook">
+      <img src="iconos/instagram.png" alt="Instagram">
+      <img src="iconos/twitter.png" alt="Twitter">
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 CrewLab - Todos los derechos reservados</p>
+    <p>&copy; 2025 CrewLab. Todos los derechos reservados.</p>
   </footer>
 
+  <!-- Script del carrito y menú -->
   <script src="js/script.js"></script>
 </body>
 </html>
