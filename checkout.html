@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finalizar Compra - CrewLab</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="FAVICON/favicon-32x32.png" type="image/png" />
+
+  <!-- CSS principal del sitio -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* Estilos específicos del formulario */
+    .checkout-container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .checkout-container h1,
+    .checkout-container h2 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .resumen-carrito {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+    }
+
+    .resumen-carrito ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px;
+    }
+
+    .resumen-carrito li {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px dashed #ddd;
+    }
+
+    .resumen-carrito p {
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .checkout-container label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    /* No aplicar width:100% a radios/checkbox */
+    .checkout-container input:not([type="radio"]):not([type="checkbox"]),
+    .checkout-container select,
+    .checkout-container textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .checkout-container textarea { resize: vertical; }
+
+    .checkout-container button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: green;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .checkout-container button:hover { background: darkgreen; }
+
+    /* Opciones de envío alineadas a la izquierda */
+    .metodo-envio {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin: 15px 0;
+    }
+    .metodo-envio label {
+      display: inline-flex;    /* radio + texto en la misma línea */
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-weight: normal;
+      width: auto;
+    }
+    .metodo-envio input[type="radio"] {
+      width: auto;
+      height: auto;
+      margin: 0;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Logo enlazado a la página principal -->
+    <a href="index.html" class="logo" aria-label="Volver al inicio">CrewLab</a>
+  </header>
+
+  <main>
+    <div class="checkout-container">
+      <h1>Finalizar compra</h1>
+
+      <!-- Resumen del carrito -->
+      <div class="resumen-carrito">
+        <h2>Resumen de tu compra</h2>
+        <ul id="checkout-lista"></ul>
+        <p id="checkout-total">Total: $0</p>
+      </div>
+
+      <form action="#" method="POST">
+        <!-- Método de envío -->
+        <h2>Método de envío</h2>
+        <div class="metodo-envio">
+          <label><input type="radio" name="envio" value="domicilio" checked> Envío a domicilio</label>
+          <label><input type="radio" name="envio" value="express"> Envío Express (Solo Cba)</label>
+          <label><input type="radio" name="envio" value="local"> Retiro por el local</label>
+        </div>
+
+        <!-- Datos personales -->
+        <h2>Datos del comprador</h2>
+        <label>Nombre: <input type="text" name="nombre" required></label>
+        <label>Apellido: <input type="text" name="apellido" required></label>
+        <label>DNI: <input type="text" name="dni" required></label>
+        <label>Género:
+          <select name="genero">
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+          </select>
+        </label>
+
+        <!-- Dirección -->
+        <h2>Dirección de entrega</h2>
+        <label>Calle: <input type="text" name="calle" required></label>
+        <label>Número: <input type="number" name="numero" required></label>
+        <label>Piso: <input type="text" name="piso"></label>
+        <label>Departamento: <input type="text" name="departamento"></label>
+        <label>Código Postal: <input type="text" name="cp" required></label>
+        <label>Ciudad: <input type="text" name="ciudad" required></label>
+        <label>Provincia:
+          <select name="provincia" required>
+            <option value="">Seleccione...</option>
+            <option value="Buenos Aires">Buenos Aires</option>
+            <option value="Córdoba">Córdoba</option>
+            <option value="Santa Fe">Santa Fe</option>
+            <option value="Mendoza">Mendoza</option>
+            <option value="Entre Ríos">Entre Ríos</option>
+          </select>
+        </label>
+        <label>Observaciones: <textarea name="observaciones"></textarea></label>
+
+        <!-- Botón de confirmación -->
+        <button type="submit">Confirmar compra</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CrewLab - Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Script para mostrar el carrito -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const STORAGE_KEY = 'crewlab_carrito';
+      const carrito = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+      const lista = document.getElementById("checkout-lista");
+      const totalTexto = document.getElementById("checkout-total");
+
+      let total = 0;
+      lista.innerHTML = "";
+
+      carrito.forEach(item => {
+        total += item.precio * item.cantidad;
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <span>${item.nombre} (x${item.cantidad})</span>
+          <span>$${item.precio * item.cantidad}</span>
+        `;
+        lista.appendChild(li);
+      });
+
+      totalTexto.textContent = "Total: $" + total;
+    });
+  </script>
+</body>
+</html>
