@@ -49,10 +49,44 @@
   <script>
     // --- Lista de productos (recortada como ejemplo) ---
     const productos = [
-      { id: 1, nombre: "Remera Azul Design", precio: 30000, img: "REMERAS/Remera Azul Design.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"] },
-      { id: 12, nombre: "Buzo negro desgastado", precio: 100000, img: "BUZOS/buzo negro desgastado.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"] },
-      { id: 15, nombre: "Cargo color negro (con puño)", precio: 110000, img: "PANTALONES/Cargo color Negro (con puño).jpg", talles: ["XS","S","M","L","XL","2XL","3XL"] },
-      { id: 26, nombre: "Vans Knu blanco-negro", precio: 200000, img: "ZAPATILLAS/Vans Knu blanco-negro.jpg", talles: ["38","39","40","41","42","43","44"] }
+      { id: 1, nombre: "Remera Azul Design", precio: 30000, img: "REMERAS/Remera Azul Design.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Diseño exclusivo y vibrante.", imagenes_adicionales: ["REMERAS/Remera Azul Design-Detras.jpg"] },
+    { id: 2, nombre: "Remera Blanca Basic", precio: 33000, img: "REMERAS/Remera Blanca Basic.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Algodón suave y fit perfecto.", imagenes_adicionales: ["REMERAS/Remera Blanca Basic-Perfil.jpg"] },
+    { id: 3, nombre: "Remera Crema Simply", precio: 37000, img: "REMERAS/Remera Crema Simply.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Tono neutro, ideal para combinar.", imagenes_adicionales: ["REMERAS/Remera Crema Simply-Detras.jpg"] },
+    { id: 4, nombre: "Remera Gris over-estampada", precio: 41000, img: "REMERAS/Remera Gris over-estampada.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Estampado grande y look urbano.", 
+        // RUTA CORREGIDA (Capitalización de la R y G)
+        imagenes_adicionales: ["REMERAS/Remera Gris over-estampada-detras.png"] 
+    },
+    { id: 5, nombre: "Remera Negra Basic", precio: 45000, img: "REMERAS/Remera Negra Basic.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "El clásico que nunca falla.", imagenes_adicionales: ["REMERAS/Remera Negra Basic-Detras.jpg"] },
+    // Buzos
+    { id: 7, nombre: "Buzo blanco bordado", precio: 60000, img: "BUZOS/buzo blanco bordado.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Detalle bordado de alta precisión.", imagenes_adicionales: ["BUZOS/buzo blanco bordado-2.jpg"] },
+    { id: 8, nombre: "Buzo design", precio: 70000, img: "BUZOS/buzo design.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Diseño gráfico único y moderno.", imagenes_adicionales: ["BUZOS/buzo design-2.jpg"] },
+    { id: 9, nombre: "Buzo gris desgastado", precio: 75000, img: "BUZOS/buzo gris desgastado.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Efecto vintage desgastado.", imagenes_adicionales: ["BUZOS/buzo gris desgastado-2.jpg"] },
+    { id: 10, nombre: "Buzo gris estampado", precio: 80000, img: "BUZOS/buzo gris estampado.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Estampado minimalista en la espalda.", imagenes_adicionales: ["BUZOS/buzo gris estampado-2.jpg"] },
+    { id: 11, nombre: "Buzo negro basic", precio: 90000, img: "BUZOS/buzo negro basic.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Buzo clásico de friza de algodón.", 
+        // RUTA CORREGIDA (Simplificado el nombre de archivo con extensión errónea)
+        imagenes_adicionales: ["BUZOS/buzo negro basic-2.jpg"] 
+    },
+    { id: 12, nombre: "Buzo negro desgastado", precio: 100000, img: "BUZOS/buzo negro desgastado.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Proceso de teñido artesanal para un look único.", imagenes_adicionales: ["BUZOS/buzo negro desgastado-2.jpg"] },
+    // Pantalones
+    { id: 13, nombre: "Cargo color crema", precio: 100000, img: "PANTALONES/Cargo color crema.avif", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Tela ripstop resistente con múltiples bolsillos.", imagenes_adicionales: ["REMERAS/Remera Blanca Basic-Perfil.jpg"] },
+    { id: 14, nombre: "Cargo color marrón", precio: 105000, img: "PANTALONES/Cargo color marron.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Cargo de corte recto y acabado mate.", imagenes_adicionales: ["PANTALONES/Cargo color marron-2.jpg"] },
+    { id: 15, nombre: "Cargo color negro (con puño)", precio: 110000, img: "PANTALONES/Cargo color Negro (con puño).jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Ajuste cómodo en el tobillo y costuras reforzadas.", imagenes_adicionales: ["PANTALONES/Cargo color Negro (con puño)-2.jpg"] },
+    { id: 16, nombre: "Cargo color verde clarito", precio: 115000, img: "PANTALONES/Cargo color verde clarito.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Estilo militar moderno en tono claro.", imagenes_adicionales: ["PANTALONES/Cargo color verde clarito-2.jpg"] },
+    { id: 17, nombre: "Jean azulado", precio: 120000, img: "PANTALONES/Jean azulado.webp", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Denim de lavado oscuro, fit relaxed.", imagenes_adicionales: ["PANTALONES/Jean azulado-2.jpg"] },
+    { id: 18, nombre: "Jean clarito", precio: 122000, img: "PANTALONES/Jean clarito.jpeg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Jean con lavado claro, ideal para verano.", imagenes_adicionales: ["PANTALONES/Jean clarito-2.jpg"] },
+    { id: 19, nombre: "Jean clásico", precio: 125000, img: "PANTALONES/Jean clasico.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Corte recto, el denim de siempre.", imagenes_adicionales: ["PANTALONES/Jean clasico-2.jpg"] },
+    { id: 20, nombre: "Jean desgastado", precio: 127000, img: "PANTALONES/Jean desgastado.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Efecto de uso natural y cómodo.", imagenes_adicionales: ["PANTALONES/Jean desgastado-2.jpg"] },
+    { id: 21, nombre: "Jean oscuro", precio: 130000, img: "PANTALONES/Jean oscuro.jpg", talles: ["XS","S","M","L","XL","2XL","3XL"], descripcion: "Color oscuro, denim rígido de alta duración.", imagenes_adicionales: ["PANTALONES/Jean oscuro-2.jpg"] },
+    // Zapatillas
+    { id: 22, nombre: "Adidas Campus Gris", precio: 165000, img: "ZAPATILLAS/Adidas Campus Gris.webp", talles: ["38","39","40","41","42","43","44"], descripcion: "Clásico renovado en gamuza gris.", imagenes_adicionales: ["ZAPATILLAS/Adidas Campus Gris-2.webp"] },
+    { id: 23, nombre: "Adidas Samba clásicas blancas", precio: 170000, img: "ZAPATILLAS/Adidas samba clasicas blancas.avif", talles: ["38","39","40","41","42","43","44"], descripcion: "Silueta icónica con detalles en cuero.", imagenes_adicionales: ["ZAPATILLAS/Adidas samba clasicas blancas-2.avif"] },
+    { id: 24, nombre: "Adidas Samba clásicas negras", precio: 180000, img: "ZAPATILLAS/Adidas samba clasicas negras.avif", talles: ["38","39","40","41","42","43","44"], descripcion: "El modelo retro más buscado, máxima calidad.", 
+        // RUTA CORREGIDA (Capitalización de la S de Samba)
+        imagenes_adicionales: ["ZAPATILLAS/Adidas Samba clásicas negras-2.avif"] 
+    },
+    { id: 25, nombre: "Campus verdes", precio: 195000, img: "ZAPATILLAS/campus verdes.avif", talles: ["38","39","40","41","42","43","44"], descripcion: "Color vibrante, estilo urbano.", imagenes_adicionales: ["ZAPATILLAS/campus verdes-2.avif"] },
+    { id: 26, nombre: "Vans Knu blanco-negro", precio: 200000, img: "ZAPATILLAS/Vans Knu blanco-negro.jpg", talles: ["38","39","40","41","42","43","44"], descripcion: "El skate-shoe de los 90s, máxima comodidad.", imagenes_adicionales: ["ZAPATILLAS/Vans Knu blanco-negro-2.jpg"] },
+    { id: 27, nombre: "Vans Knu Negras", precio: 210000, img: "ZAPATILLAS/Vans Knu Negras.jpg", talles: ["38","39","40","41","42","43","44"], descripcion: "Versión chunky, tendencia actual.", imagenes_adicionales: ["ZAPATILLAS/Vans Knu Negras-2.jpg"] }
     ];
 
     // --- Leer parámetro ID de la URL ---
