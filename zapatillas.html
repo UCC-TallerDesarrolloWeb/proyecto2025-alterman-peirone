@@ -1,105 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zapatillas - CrewLab</title>
-  <link rel="icon" href="FAVICON/favicon-32x32.png" type="image/png">
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Metadatos -->
+  <meta name="author" content="Ivo Alterman y German Peirone" />
+  <meta name="description" content="Zapatillas CrewLab: modelos icónicos y urbanos como Adidas Samba, Campus y Vans Knu." />
+  <meta name="keywords" content="zapatillas, sneakers, adidas samba, adidas campus, vans knu, moda urbana, CrewLab" />
+
+  <link rel="icon" href="FAVICON/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header>
-    <a href="index.html" class="logo">CrewLab</a>
+    <a href="index.html" class="logo" aria-label="CrewLab, ir al inicio">CrewLab</a>
+
     <div class="acciones">
-      <div class="carrito">🛒</div>
-      <div class="menu-hamburguesa" id="menu-btn">☰</div>
+      <!-- Botón carrito accesible -->
+      <button class="carrito" type="button" aria-haspopup="dialog" aria-controls="carrito-modal" aria-label="Abrir carrito">🛒</button>
+      <!-- Botón menú accesible -->
+      <button class="menu-hamburguesa" id="menu-btn" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">☰</button>
     </div>
-    <nav class="menu-desplegable" id="menu">
+
+    <nav class="menu-desplegable" id="menu" aria-label="Categorías">
       <ul>
         <li><a href="remeras.html">Remeras</a></li>
         <li><a href="buzos.html">Buzos</a></li>
         <li><a href="pantalones.html">Pantalones</a></li>
-        <li><a href="zapatillas.html">Zapatillas</a></li>
+        <li><a href="zapatillas.html" aria-current="page">Zapatillas</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <h1>Zapatillas</h1>
-    <section class="productos">
 
-      <div class="producto">
+    <section class="productos" aria-label="Listado de zapatillas">
+      <!-- 22 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="ZAPATILLAS/Adidas Campus Gris.webp" alt="Adidas Campus Gris" class="img-principal">
-          <img src="ZAPATILLAS/Adidas Campus Gris-2.webp" alt="Adidas Campus Gris" class="img-hover">
+          <img src="ZAPATILLAS/Adidas Campus Gris.webp" alt="Adidas Campus Gris" class="img-principal" loading="lazy" />
+          <img src="ZAPATILLAS/Adidas Campus Gris-2.webp" alt="Adidas Campus Gris detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Adidas Campus Gris</h2>
         <p>$165.000</p>
-        <a href="productos.html?id=22" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Adidas Campus Gris" data-precio="165000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=22" class="ver-mas" aria-label="Ver más sobre Adidas Campus Gris">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 23 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="ZAPATILLAS/Adidas samba clasicas blancas.avif" alt="Adidas Samba clásicas blancas" class="img-principal">
-          <img src="ZAPATILLAS/Adidas samba clasicas blancas-2.avif" alt="Adidas Samba clásicas blancas" class="img-hover">
+          <img src="ZAPATILLAS/Adidas samba clasicas blancas.avif" alt="Adidas Samba clásicas blancas" class="img-principal" loading="lazy" />
+          <img src="ZAPATILLAS/Adidas samba clasicas blancas-2.avif" alt="Adidas Samba clásicas blancas detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Adidas Samba clásicas blancas</h2>
         <p>$170.000</p>
-        <a href="productos.html?id=23" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Adidas Samba clásicas blancas" data-precio="170000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=23" class="ver-mas" aria-label="Ver más sobre Adidas Samba clásicas blancas">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 24 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="ZAPATILLAS/Adidas samba clasicas negras.avif" alt="Adidas Samba clásicas negras" class="img-principal">
-          <img src="ZAPATILLAS/Adidas samba clasicas negras-2.avif" alt="Adidas Samba clásicas negras" class="img-hover">
+          <img src="ZAPATILLAS/Adidas samba clasicas negras.avif" alt="Adidas Samba clásicas negras" class="img-principal" loading="lazy" />
+          <img src="ZAPATILLAS/Adidas samba clasicas negras-frente.jpeg" alt="Adidas Samba clásicas negras detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Adidas Samba clásicas negras</h2>
         <p>$180.000</p>
-        <a href="productos.html?id=24" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Adidas Samba clásicas negras" data-precio="180000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=24" class="ver-mas" aria-label="Ver más sobre Adidas Samba clásicas negras">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 25 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="ZAPATILLAS/campus verdes.avif" alt="Campus verdes" class="img-principal">
-          <img src="ZAPATILLAS/campus verdes-2.avif" alt="Campus verdes" class="img-hover">
+          <img src="ZAPATILLAS/campus verdes.avif" alt="Zapatillas Campus verdes" class="img-principal" loading="lazy" />
+          <img src="ZAPATILLAS/campus verdes-2.avif" alt="Zapatillas Campus verdes detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Campus verdes</h2>
         <p>$195.000</p>
-        <a href="productos.html?id=25" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Campus verdes" data-precio="195000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=25" class="ver-mas" aria-label="Ver más sobre Campus verdes">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 26 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="ZAPATILLAS/Vans Knu blanco-negro.jpg" alt="Vans Knu blanco-negro" class="img-principal">
-          <img src="ZAPATILLAS/Vans Knu blanco-negro-2.jpg" alt="Vans Knu blanco-negro" class="img-hover">
+          <img src="ZAPATILLAS/Vans Knu blanco-negro.jpg" alt="Vans Knu blanco y negro" class="img-principal" loading="lazy" />
+          <img src="ZAPATILLAS/Vans Knu blanco-negro-2.jpg" alt="Vans Knu blanco y negro detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Vans Knu blanco-negro</h2>
         <p>$200.000</p>
-        <a href="productos.html?id=26" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Vans Knu blanco-negro" data-precio="200000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=26" class="ver-mas" aria-label="Ver más sobre Vans Knu blanco y negro">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 27 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="ZAPATILLAS/Vans Knu Negras.jpg" alt="Vans Knu Negras" class="img-principal">
-          <img src="ZAPATILLAS/Vans Knu Negras-2.jpg" alt="Vans Knu Negras" class="img-hover">
+          <img src="ZAPATILLAS/Vans Knu Negras.jpg" alt="Vans Knu negras" class="img-principal" loading="lazy" />
+          <img src="ZAPATILLAS/Vans Knu Negras-2.jpg" alt="Vans Knu negras detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Vans Knu Negras</h2>
         <p>$210.000</p>
-        <a href="productos.html?id=27" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Vans Knu Negras" data-precio="210000">Agregar al carrito</button>
-      </div>
-
+        <a href="productos.html?id=27" class="ver-mas" aria-label="Ver más sobre Vans Knu Negras">Ver más</a>
+      </article>
     </section>
   </main>
 
   <footer>
     <p>© 2025 CrewLab - Todos los derechos reservados</p>
   </footer>
+
+  <!-- Modal del carrito (uniforme en todo el sitio) -->
+  <div id="carrito-modal" class="carrito-modal oculto" role="dialog" aria-modal="true" aria-labelledby="titulo-carrito">
+    <div class="carrito-contenido">
+      <h2 id="titulo-carrito">Tu Carrito</h2>
+      <ul id="carrito-lista"></ul>
+      <p id="carrito-total">Total: $0</p>
+      <div class="carrito-botones">
+        <button id="cerrar-carrito" type="button">Cerrar</button>
+        <button id="finalizar-compra" type="button">Finalizar Compra</button>
+      </div>
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>

@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pantalones - CrewLab</title>
-  <link rel="icon" href="FAVICON/favicon-32x32.png" type="image/png">
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Metadatos -->
+  <meta name="author" content="Ivo Alterman y German Peirone" />
+  <meta name="description" content="Pantalones CrewLab: cargos, jeans y joggers de corte urbano en múltiples talles y colores." />
+  <meta name="keywords" content="pantalones, cargo, jeans, jogger, moda urbana, CrewLab" />
+
+  <link rel="icon" href="FAVICON/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header>
-    <a href="index.html" class="logo">CrewLab</a>
+    <a href="index.html" class="logo" aria-label="CrewLab, ir al inicio">CrewLab</a>
+
     <div class="acciones">
-      <div class="carrito">🛒</div>
-      <div class="menu-hamburguesa" id="menu-btn">☰</div>
+      <!-- Botón carrito accesible -->
+      <button class="carrito" type="button" aria-haspopup="dialog" aria-controls="carrito-modal" aria-label="Abrir carrito">🛒</button>
+      <!-- Botón menú accesible -->
+      <button class="menu-hamburguesa" id="menu-btn" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">☰</button>
     </div>
-    <nav class="menu-desplegable" id="menu">
+
+    <nav class="menu-desplegable" id="menu" aria-label="Categorías">
       <ul>
         <li><a href="remeras.html">Remeras</a></li>
         <li><a href="buzos.html">Buzos</a></li>
-        <li><a href="pantalones.html">Pantalones</a></li>
+        <li><a href="pantalones.html" aria-current="page">Pantalones</a></li>
         <li><a href="zapatillas.html">Zapatillas</a></li>
       </ul>
     </nav>
@@ -26,113 +36,125 @@
 
   <main>
     <h1>Pantalones</h1>
-    <section class="productos">
 
-      <div class="producto">
+    <section class="productos" aria-label="Listado de pantalones">
+      <!-- 13 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="PANTALONES/Cargo color crema.avif" alt="Cargo color crema" class="img-principal">
-          <img src="PANTALONES/Cargo color crema-2.avif" alt="Cargo color crema" class="img-hover">
+          <img src="PANTALONES/Cargo color crema.avif" alt="Pantalón cargo color crema" class="img-principal" loading="lazy" />
+          <img src="PANTALONES/Cargo color crema-2.avif" alt="Pantalón cargo color crema detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Cargo color crema</h2>
         <p>$100.000</p>
-        <a href="productos.html?id=13" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Cargo color crema" data-precio="100000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=13" class="ver-mas" aria-label="Ver más sobre Cargo color crema">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 14 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="PANTALONES/Cargo color marron.jpg" alt="Cargo color marrón" class="img-principal">
-          <img src="PANTALONES/Cargo color marron-2.jpg" alt="Cargo color marrón" class="img-hover">
+          <img src="PANTALONES/Cargo color marron.jpg" alt="Pantalón cargo color marrón" class="img-principal" loading="lazy" />
+          <img src="PANTALONES/Cargo color marron-2.jpg" alt="Pantalón cargo color marrón detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Cargo color marrón</h2>
         <p>$105.000</p>
-        <a href="productos.html?id=14" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Cargo color marron" data-precio="105000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=14" class="ver-mas" aria-label="Ver más sobre Cargo color marrón">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 15 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="PANTALONES/Cargo color Negro (con puño).jpg" alt="Cargo color negro con puño" class="img-principal">
-          <img src="PANTALONES/Cargo color Negro (con puño)-2.jpg" alt="Cargo color negro con puño" class="img-hover">
+          <img src="PANTALONES/Cargo color Negro (con puño).jpg" alt="Pantalón cargo color negro con puño" class="img-principal" loading="lazy" />
+          <img src="PANTALONES/Cargo color Negro (con puño)-2.jpg" alt="Pantalón cargo negro con puño detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Cargo color negro (con puño)</h2>
         <p>$110.000</p>
-        <a href="productos.html?id=15" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Cargo color negro (con puño)" data-precio="110000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=15" class="ver-mas" aria-label="Ver más sobre Cargo color negro con puño">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 16 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="PANTALONES/Cargo color verde clarito.jpg" alt="Cargo color verde clarito" class="img-principal">
-          <img src="PANTALONES/Cargo color verde clarito-2.jpg" alt="Cargo color verde clarito" class="img-hover">
+          <img src="PANTALONES/Cargo color verde clarito.jpg" alt="Pantalón cargo verde clarito" class="img-principal" loading="lazy" />
+          <img src="PANTALONES/Cargo color verde clarito-2.jpg" alt="Pantalón cargo verde clarito detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Cargo color verde clarito</h2>
         <p>$115.000</p>
-        <a href="productos.html?id=16" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Cargo color verde claro" data-precio="115000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=16" class="ver-mas" aria-label="Ver más sobre Cargo color verde clarito">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 17 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="PANTALONES/Jean azulado.webp" alt="Jean azulado" class="img-principal">
-          <img src="PANTALONES/Jean azulado-2.webp" alt="Jean azulado" class="img-hover">
+          <img src="PANTALONES/Jean azulado.webp" alt="Jean azulado" class="img-principal" loading="lazy" />
+          <img src="PANTALONES/Jean azulado-2.webp" alt="Jean azulado detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Jean azulado</h2>
         <p>$120.000</p>
-        <a href="productos.html?id=17" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Jean azulado" data-precio="120000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=17" class="ver-mas" aria-label="Ver más sobre Jean azulado">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 18 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="PANTALONES/Jean clarito.jpeg" alt="Jean clarito" class="img-principal">
-          <img src="PANTALONES/Jean clarito-2.jpeg" alt="Jean clarito" class="img-hover">
+          <img src="PANTALONES/Jean clarito.jpeg" alt="Jean clarito" class="img-principal" loading="lazy" />
+          <img src="PANTALONES/Jean clarito-2.jpeg" alt="Jean clarito detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Jean clarito</h2>
         <p>$122.000</p>
-        <a href="productos.html?id=18" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Jean clarito" data-precio="122000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=18" class="ver-mas" aria-label="Ver más sobre Jean clarito">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 19 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="PANTALONES/Jean clasico.jpg" alt="Jean clásico" class="img-principal">
-          <img src="PANTALONES/Jean clasico-2.jpg" alt="Jean clásico" class="img-hover">
+          <img src="PANTALONES/Jean clasico.jpg" alt="Jean clásico" class="img-principal" loading="lazy" />
+          <img src="PANTALONES/Jean clasico-2.jpg" alt="Jean clásico detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Jean clásico</h2>
         <p>$125.000</p>
-        <a href="productos.html?id=19" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Jean clasico" data-precio="125000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=19" class="ver-mas" aria-label="Ver más sobre Jean clásico">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 20 -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="PANTALONES/Jean desgastado.jpg" alt="Jean desgastado" class="img-principal">
-          <img src="PANTALONES/Jean desgastado-2.jpg" alt="Jean desgastado" class="img-hover">
+          <img src="PANTALONES/Jean desgastado.jpg" alt="Jean desgastado" class="img-principal" loading="lazy" />
+          <img src="PANTALONES/Jean desgastado-2.jpg" alt="Jean desgastado detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Jean desgastado</h2>
         <p>$127.000</p>
-        <a href="productos.html?id=20" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Jean desgastado" data-precio="127000">Agregar al carrito</button>
-      </div>
+        <a href="productos.html?id=20" class="ver-mas" aria-label="Ver más sobre Jean desgastado">Ver más</a>
+      </article>
 
-      <div class="producto">
+      <!-- 21 (ruta 2da imagen corregida: 'Jean oscuro-2.jpg') -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="PANTALONES/Jean oscuro.jpg" alt="Jean oscuro" class="img-principal">
-          <img src="PANTALONES/jean oscuro-2.jpg" alt="Jean oscuro" class="img-hover">
+          <img src="PANTALONES/Jean oscuro.jpg" alt="Jean oscuro" class="img-principal" loading="lazy" />
+          <img src="PANTALONES/Jean oscuro-2.jpg" alt="Jean oscuro detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Jean oscuro</h2>
         <p>$130.000</p>
-        <a href="productos.html?id=21" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Jean oscuro" data-precio="130000">Agregar al carrito</button>
-      </div>
-
+        <a href="productos.html?id=21" class="ver-mas" aria-label="Ver más sobre Jean oscuro">Ver más</a>
+      </article>
     </section>
   </main>
 
   <footer>
     <p>© 2025 CrewLab - Todos los derechos reservados</p>
   </footer>
+
+  <!-- Modal del carrito -->
+  <div id="carrito-modal" class="carrito-modal oculto" role="dialog" aria-modal="true" aria-labelledby="titulo-carrito">
+    <div class="carrito-contenido">
+      <h2 id="titulo-carrito">Tu Carrito</h2>
+      <ul id="carrito-lista"></ul>
+      <p id="carrito-total">Total: $0</p>
+      <div class="carrito-botones">
+        <button id="cerrar-carrito" type="button">Cerrar</button>
+        <button id="finalizar-compra" type="button">Finalizar Compra</button>
+      </div>
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>

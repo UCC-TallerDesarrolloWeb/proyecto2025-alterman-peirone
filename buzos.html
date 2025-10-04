@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buzos - CrewLab</title>
-  <link rel="icon" href="FAVICON/favicon-32x32.png" type="image/png">
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Metadatos -->
+  <meta name="author" content="Ivo Alterman y German Peirone" />
+  <meta name="description" content="Buzos CrewLab: friza de algodón, diseños estampados y clásicos en talles para todos." />
+  <meta name="keywords" content="buzos, buzos de friza, buzos estampados, moda urbana, CrewLab" />
+
+  <link rel="icon" href="FAVICON/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header>
-    <a href="index.html" class="logo">CrewLab</a>
+    <a href="index.html" class="logo" aria-label="CrewLab, ir al inicio">CrewLab</a>
+
     <div class="acciones">
-      <div class="carrito">🛒</div>
-      <div class="menu-hamburguesa" id="menu-btn">☰</div>
+      <!-- Botón carrito accesible -->
+      <button class="carrito" type="button" aria-haspopup="dialog" aria-controls="carrito-modal" aria-label="Abrir carrito">🛒</button>
+      <!-- Botón menú accesible -->
+      <button class="menu-hamburguesa" id="menu-btn" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">☰</button>
     </div>
-    <nav class="menu-desplegable" id="menu">
+
+    <nav class="menu-desplegable" id="menu" aria-label="Categorías">
       <ul>
         <li><a href="remeras.html">Remeras</a></li>
-        <li><a href="buzos.html">Buzos</a></li>
+        <li><a href="buzos.html" aria-current="page">Buzos</a></li>
         <li><a href="pantalones.html">Pantalones</a></li>
         <li><a href="zapatillas.html">Zapatillas</a></li>
       </ul>
@@ -26,110 +36,92 @@
 
   <main>
     <h1>Buzos</h1>
-    <section class="productos">
 
+    <section class="productos" aria-label="Listado de buzos">
       <!-- Producto 7 -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="BUZOS/buzo blanco bordado.jpg" alt="Buzo blanco bordado" class="img-principal">
-          <img src="BUZOS/buzo blanco bordado-2.jpg" alt="Buzo blanco bordado" class="img-hover">
+          <img src="BUZOS/buzo blanco bordado.jpg" alt="Buzo blanco bordado" class="img-principal" loading="lazy" />
+          <img src="BUZOS/buzo blanco bordado-2.jpg" alt="Buzo blanco bordado detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Buzo blanco bordado</h2>
         <p>$60.000</p>
-
-        <a href="productos.html?id=7" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Buzo blanco bordado" data-precio="60000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=7" class="ver-mas" aria-label="Ver más sobre Buzo blanco bordado">Ver más</a>
+      </article>
 
       <!-- Producto 8 -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="BUZOS/buzo design.jpg" alt="Buzo design" class="img-principal">
-          <img src="BUZOS/buzo design-2.jpg" alt="Buzo design" class="img-hover">
+          <img src="BUZOS/buzo design.jpg" alt="Buzo design" class="img-principal" loading="lazy" />
+          <img src="BUZOS/buzo design-2.jpg" alt="Buzo design detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Buzo design</h2>
         <p>$70.000</p>
-
-        <a href="productos.html?id=8" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Buzo design" data-precio="70000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=8" class="ver-mas" aria-label="Ver más sobre Buzo design">Ver más</a>
+      </article>
 
       <!-- Producto 9 -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="BUZOS/buzo gris desgastado.jpg" alt="Buzo gris desgastado" class="img-principal">
-          <img src="BUZOS/buzo gris desgastado-2.jpg" alt="Buzo gris desgastado" class="img-hover">
+          <img src="BUZOS/buzo gris desgastado.jpg" alt="Buzo gris desgastado" class="img-principal" loading="lazy" />
+          <img src="BUZOS/buzo gris desgastado-2.jpg" alt="Buzo gris desgastado detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Buzo gris desgastado</h2>
         <p>$75.000</p>
-
-        <a href="productos.html?id=9" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Buzo gris desgastado" data-precio="75000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=9" class="ver-mas" aria-label="Ver más sobre Buzo gris desgastado">Ver más</a>
+      </article>
 
       <!-- Producto 10 -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="BUZOS/buzo gris estampado.jpg" alt="Buzo gris estampado" class="img-principal">
-          <img src="BUZOS/buzo gris estampado-2.jpg" alt="Buzo gris estampado" class="img-hover">
+          <img src="BUZOS/buzo gris estampado.jpg" alt="Buzo gris estampado" class="img-principal" loading="lazy" />
+          <img src="BUZOS/buzo gris estampado-2.jpg" alt="Buzo gris estampado detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Buzo gris estampado</h2>
         <p>$80.000</p>
+        <a href="productos.html?id=10" class="ver-mas" aria-label="Ver más sobre Buzo gris estampado">Ver más</a>
+      </article>
 
-        <a href="productos.html?id=10" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Buzo gris estampado" data-precio="80000">
-          Agregar al carrito
-        </button>
-      </div>
-
-      <!-- Producto 11 -->
-      <div class="producto">
+      <!-- Producto 11 (ruta corregida de la 2da imagen) -->
+      <article class="producto">
         <div class="producto-img">
-          <img src="BUZOS/buzo negro basic.jpg" alt="Buzo negro basic" class="img-principal">
-          <img src="BUZOS/buzo negro basic.-2jpg.webp" alt="Buzo negro basic" class="img-hover">
+          <img src="BUZOS/buzo negro basic.jpg" alt="Buzo negro basic" class="img-principal" loading="lazy" />
+          <img src="BUZOS/buzo negro basic-2.jpg" alt="Buzo negro basic detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Buzo negro basic</h2>
         <p>$90.000</p>
-
-        <a href="productos.html?id=11" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Buzo negro basic" data-precio="90000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=11" class="ver-mas" aria-label="Ver más sobre Buzo negro basic">Ver más</a>
+      </article>
 
       <!-- Producto 12 -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="BUZOS/buzo negro desgastado.jpg" alt="Buzo negro desgastado" class="img-principal">
-          <img src="BUZOS/buzo negro desgastado-2.jpg" alt="Buzo negro desgastado" class="img-hover">
+          <img src="BUZOS/buzo negro desgastado.jpg" alt="Buzo negro desgastado" class="img-principal" loading="lazy" />
+          <img src="BUZOS/buzo negro desgastado-2.jpg" alt="Buzo negro desgastado detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Buzo negro desgastado</h2>
         <p>$100.000</p>
-
-        <a href="productos.html?id=12" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Buzo negro desgastado" data-precio="100000">
-          Agregar al carrito
-        </button>
-      </div>
-
+        <a href="productos.html?id=12" class="ver-mas" aria-label="Ver más sobre Buzo negro desgastado">Ver más</a>
+      </article>
     </section>
   </main>
 
   <footer>
     <p>© 2025 CrewLab - Todos los derechos reservados</p>
   </footer>
+
+  <!-- Modal del carrito (uniforme en todas las páginas) -->
+  <div id="carrito-modal" class="carrito-modal oculto" role="dialog" aria-modal="true" aria-labelledby="titulo-carrito">
+    <div class="carrito-contenido">
+      <h2 id="titulo-carrito">Tu Carrito</h2>
+      <ul id="carrito-lista"></ul>
+      <p id="carrito-total">Total: $0</p>
+      <div class="carrito-botones">
+        <button id="cerrar-carrito" type="button">Cerrar</button>
+        <button id="finalizar-compra" type="button">Finalizar Compra</button>
+      </div>
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>

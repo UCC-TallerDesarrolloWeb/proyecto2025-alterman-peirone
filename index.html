@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CrewLab - Inicio</title>
-  <link rel="icon" href="FAVICON/favicon-32x32.png" type="image/png">
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="author" content="Ivo Alterman y Gerpeirone">
-  <meta name="description" content="CrewLab - tienda online de ropa urbana: remeras, buzos, pantalones y zapatillas.">
-  <meta name="keywords" content="ropa, moda urbana, remeras, buzos, pantalones, zapatillas, CrewLab">
+
+  <!-- Metadatos requeridos -->
+  <meta name="author" content="Ivo Alterman y German Peirone" />
+  <meta name="description" content="CrewLab - tienda online de ropa urbana: remeras, buzos, pantalones y zapatillas." />
+  <meta name="keywords" content="ropa, moda urbana, remeras, buzos, pantalones, zapatillas, CrewLab" />
+
+  <link rel="icon" href="FAVICON/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <!-- Header -->
   <header>
-    <h1 class="logo">
-      <a href="index.html" class="logo">CrewLab</a>
-    </h1>
+    <!-- Logo como link (evitamos segundo H1 en la página) -->
+    <a href="index.html" class="logo" aria-label="CrewLab, ir al inicio">CrewLab</a>
 
     <div class="acciones">
-      <div class="carrito">🛒</div>
-      <div class="menu-hamburguesa" id="menu-btn">☰</div>
+      <!-- Botón de carrito accesible -->
+      <button class="carrito" type="button" aria-haspopup="dialog" aria-controls="carrito-modal" aria-label="Abrir carrito">🛒</button>
+
+      <!-- Botón hamburguesa accesible -->
+      <button class="menu-hamburguesa" id="menu-btn" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">☰</button>
     </div>
 
-    <nav class="menu-desplegable" id="menu">
+    <nav class="menu-desplegable" id="menu" aria-label="Categorías">
       <ul>
         <li><a href="remeras.html">Remeras</a></li>
         <li><a href="buzos.html">Buzos</a></li>
@@ -33,98 +38,105 @@
   </header>
 
   <!-- Carrusel -->
-  <section class="carrusel">
+  <section class="carrusel" aria-label="Ofertas destacadas">
     <div class="slides">
-      <img src="CARRUSEL OFERTAS/promocion1.jpg" alt="Promoción 1">
-      <img src="CARRUSEL OFERTAS/promocion5.2.png.jpg" alt="Promoción 2">
-      <img src="CARRUSEL OFERTAS/promocion4.png" alt="Promoción 4">
-      <img src="CARRUSEL OFERTAS/polo.avif" alt="Promocion 5">
+      <img src="CARRUSEL OFERTAS/promocion1.jpg" alt="Promoción 1: descuento en nuevas colecciones" loading="lazy" />
+      <img src="CARRUSEL OFERTAS/promocion5.2.png.jpg" alt="Promoción 2: envíos sin interés" loading="lazy" />
+      <img src="CARRUSEL OFERTAS/promocion4.png" alt="Promoción 3: combos de remeras" loading="lazy" />
+      <img src="CARRUSEL OFERTAS/polo.avif" alt="Promoción 4: polos y básicos" loading="lazy" />
     </div>
   </section>
 
   <!-- Productos principales -->
   <main>
-    <h1>PRODUCTOS MAS VENDIDOS</h1>
-    <section class="productos">
+    <h1>PRODUCTOS MÁS VENDIDOS</h1>
 
+    <section class="productos" aria-label="Grid de productos más vendidos">
       <!-- REMERA -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="REMERAS/Remera Azul Design.jpg" alt="Remera Azul Design" class="img-principal">
-          <img src="REMERAS/Remera Azul Design-Detras.jpg" alt="Remera Azul Design" class="img-hover">
+          <img src="REMERAS/Remera Azul Design.jpg" alt="Remera Azul Design" class="img-principal" loading="lazy" />
+          <img src="REMERAS/Remera Azul Design-Detras.jpg" alt="Remera Azul Design vista posterior" class="img-hover" loading="lazy" />
         </div>
         <h2>Remera Azul Design</h2>
         <p>$30.000</p>
-        <!-- Ver más: productos.html + ancla del producto -->
-         <a href="productos.html?id=1" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Remera Azul Design" data-precio="30000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=1" class="ver-mas" aria-label="Ver más sobre Remera Azul Design">Ver más</a>
+      </article>
 
       <!-- BUZO -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="BUZOS/buzo negro desgastado.jpg" alt="Buzo Negro Urban" class="img-principal">
-          <img src="BUZOS/buzo negro desgastado-2.jpg" alt="Buzo Negro Urban" class="img-hover">
+          <img src="BUZOS/buzo negro desgastado.jpg" alt="Buzo negro desgastado" class="img-principal" loading="lazy" />
+          <img src="BUZOS/buzo negro desgastado-2.jpg" alt="Buzo negro desgastado detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Buzo Negro Desgastado</h2>
         <p>$100.000</p>
-        <a href="productos.html?id=12" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Buzo Negro Urban" data-precio="100000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=12" class="ver-mas" aria-label="Ver más sobre Buzo Negro Desgastado">Ver más</a>
+      </article>
 
       <!-- PANTALÓN -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="PANTALONES/Cargo color Negro (con puño).jpg" alt="Pantalón Cargo" class="img-principal">
-          <img src="PANTALONES/Cargo color Negro (con puño)-2.jpg" alt="Pantalón Cargo" class="img-hover">
+          <img src="PANTALONES/Cargo color Negro (con puño).jpg" alt="Pantalón cargo color negro con puño" class="img-principal" loading="lazy" />
+          <img src="PANTALONES/Cargo color Negro (con puño)-2.jpg" alt="Pantalón cargo negro detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Cargo color Negro (con puño)</h2>
         <p>$110.000</p>
-       <a href="productos.html?id=15" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Pantalón Cargo" data-precio="110000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=15" class="ver-mas" aria-label="Ver más sobre Cargo color Negro con puño">Ver más</a>
+      </article>
 
       <!-- ZAPATILLAS -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="ZAPATILLAS/Vans Knu blanco-negro.jpg" alt="Zapatillas Blancas" class="img-principal">
-          <img src="ZAPATILLAS/Vans Knu blanco-negro-2.jpg" alt="Zapatillas Blancas" class="img-hover">
+          <img src="ZAPATILLAS/Vans Knu blanco-negro.jpg" alt="Zapatillas Vans Knu blanco y negro" class="img-principal" loading="lazy" />
+          <img src="ZAPATILLAS/Vans Knu blanco-negro-2.jpg" alt="Zapatillas Vans Knu blanco y negro detalle" class="img-hover" loading="lazy" />
         </div>
         <h2>Vans Knu blanco-negro</h2>
         <p>$200.000</p>
-       <a href="productos.html?id=26" class="ver-mas">Ver más</a>
-        <button class="add-to-cart" data-nombre="Zapatillas Blancas" data-precio="200000">
-          Agregar al carrito
-        </button>
-      </div>
-
+        <a href="productos.html?id=26" class="ver-mas" aria-label="Ver más sobre Vans Knu blanco y negro">Ver más</a>
+      </article>
     </section>
   </main>
 
   <!-- Sección Sobre nosotros -->
-  <section class="sobre-nosotros">
-    <h2>Sobre Nosotros</h2>
+  <section class="sobre-nosotros" aria-labelledby="titulo-sobre-nosotros">
+    <h2 id="titulo-sobre-nosotros">Sobre Nosotros</h2>
     <p>En CrewLab nos apasiona la moda urbana y la comodidad.</p>
     <p>Diseñamos y seleccionamos prendas de alta calidad para que te sientas único en tu estilo.</p>
-    <div class="redes">
-      <img src="LOGOS/facebook_logo.png" alt="Facebook">
-      <img src="LOGOS/instagram.jpg" alt="Instagram">
-      <img src="LOGOS/X_logo.pgn.webp" alt="Twitter">
+
+    <div class="redes" aria-label="Redes sociales">
+      <!-- Si todavía no tenés URLs reales, dejá # como placeholder -->
+      <a href="#" aria-label="Facebook de CrewLab">
+        <img src="LOGOS/facebook_logo.png" alt="Facebook" loading="lazy" />
+      </a>
+      <a href="#" aria-label="Instagram de CrewLab">
+        <img src="LOGOS/instagram.jpg" alt="Instagram" loading="lazy" />
+      </a>
+      <a href="#" aria-label="Perfil en X (Twitter) de CrewLab">
+        <img src="LOGOS/X_logo.pgn.webp" alt="X (Twitter)" loading="lazy" />
+      </a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 CrewLab. Todos los derechos reservados.</p>
+    <p>&copy; 2025 CrewLab - Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Script del carrito y menú -->
+  <!-- Carrito modal accesible -->
+  <div id="carrito-modal" class="carrito-modal oculto" role="dialog" aria-modal="true" aria-labelledby="titulo-carrito">
+    <div class="carrito-contenido">
+      <h2 id="titulo-carrito">Tu Carrito</h2>
+      <ul id="carrito-lista"></ul>
+      <p id="carrito-total">Total: $0</p>
+      <div class="carrito-botones">
+        <button id="cerrar-carrito" type="button">Cerrar</button>
+        <button id="finalizar-compra" type="button">Finalizar Compra</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS externo -->
   <script src="js/script.js"></script>
 </body>
 </html>

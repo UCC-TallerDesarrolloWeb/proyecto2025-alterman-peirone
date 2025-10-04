@@ -1,156 +1,240 @@
-const STORAGE_KEY = 'crewlab_carrito';
+"use strict";
 
-// ===================================================================
-// FUNCIONES DE CARRITO GLOBALES (Accesibles desde cualquier página)
-// Estas funciones SOLO manejan datos y la interfaz del modal/badge.
-// ===================================================================
+/** Clave usada en localStorage para persistir el carrito. */
+const STORAGE_KEY = "crewlab_carrito";
+/** Formateador de números para Argentina. */
+const fmtAR = new Intl.NumberFormat("es-AR");
 
-function loadCart() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-}
+/**
+ * Lee el carrito desde localStorage.
+ * @returns {Array<{nombre:string, precio:number, cantidad:number}>}
+ */
+const loadCart = () => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+};
 
-function saveCart(currentCart) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(currentCart));
+/**
+ * Guarda el carrito y actualiza el badge.
+ * @param {Array<{nombre:string, precio:number, cantidad:number}>} currentCart
+ * @returns {void}
+ */
+const saveCart = (currentCart) => {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(currentCart));
+  } catch {/* ignorar errores de cuota */}
   updateCartBadge(currentCart);
-}
+};
 
-function updateCartBadge(currentCart) {
-  const carritoIcon = document.querySelector('.carrito');
-  if (!carritoIcon) return; // Se asegura que el icono existe antes de continuar
+/**
+ * Actualiza el contador del ícono de carrito.
+ * @param {Array<{cantidad:number}>} [currentCart]
+ * @returns {void}
+ */
+const updateCartBadge = (currentCart) => {
+  const carritoIcon = document.querySelector(".carrito");
+  if (!carritoIcon) return;
 
-  const count = currentCart.reduce((s, i) => s + i.cantidad, 0);
-  let badge = carritoIcon.querySelector('.carrito-badge');
+  const count = (currentCart || loadCart()).reduce(
+    (s, i) => s + Number(i.cantidad || 0),
+    0
+  );
+
+  let badge = carritoIcon.querySelector(".carrito-badge");
   if (!badge) {
-    badge = document.createElement('span');
-    badge.className = 'carrito-badge';
+    badge = document.createElement("span");
+    badge.className = "carrito-badge";
+    badge.setAttribute("role", "status");
+    badge.setAttribute("aria-live", "polite");
     carritoIcon.appendChild(badge);
   }
-  badge.textContent = count > 0 ? count : '';
-}
 
-function renderCart() {
+  badge.textContent = count > 0 ? String(count) : "";
+  carritoIcon.setAttribute(
+    "aria-label",
+    count > 0 ? `Carrito: ${count} artículos` : "Carrito vacío"
+  );
+};
+
+/**
+ * Dibuja la lista del carrito y muestra el total.
+ * @returns {void}
+ */
+const renderCart = () => {
   const currentCart = loadCart();
-  const carritoLista = document.getElementById("carrito-lista");
-  const carritoTotal = document.getElementById("carrito-total");
-  if (!carritoLista || !carritoTotal) return; // Se asegura que los elementos del modal existen
+  const lista = document.getElementById("carrito-lista");
+  const totalEl = document.getElementById("carrito-total");
+  if (!lista || !totalEl) return;
 
-  carritoLista.innerHTML = "";
+  lista.innerHTML = "";
   let total = 0;
 
   currentCart.forEach((item, index) => {
-    total += item.precio * item.cantidad;
+    const precio = Number(item.precio || 0);
+    const cant = Math.max(1, Number(item.cantidad || 1));
+    const subtotal = precio * cant;
+    total += subtotal;
+
     const li = document.createElement("li");
     li.className = "carrito-item";
-    
     li.innerHTML = `
       <span class="item-info">${item.nombre}</span>
       <span class="item-ctrls">
-        <button class="cantidad-menos" data-index="${index}">-</button>
-        <span class="cantidad">${item.cantidad}</span>
-        <button class="cantidad-mas" data-index="${index}">+</button>
-        <button class="eliminar-item" data-index="${index}">❌</button>
+        <button class="cantidad-menos" data-index="${index}" aria-label="Disminuir cantidad">-</button>
+        <span class="cantidad" aria-live="polite">${cant}</span>
+        <button class="cantidad-mas" data-index="${index}" aria-label="Aumentar cantidad">+</button>
+        <button class="eliminar-item" data-index="${index}" aria-label="Eliminar del carrito">❌</button>
       </span>
     `;
-    carritoLista.appendChild(li);
+    lista.appendChild(li);
   });
 
-  carritoTotal.textContent = `Total: $${total.toLocaleString("es-AR")}`;
+  totalEl.textContent = `Total: $${fmtAR.format(total)}`;
   updateCartBadge(currentCart);
-}
+};
 
 /**
- * Función que añade un ítem al carrito y guarda.
- * Es la que llama productos.html
+ * Agrega un ítem al carrito (si existe, suma cantidades).
+ * @param {{nombre:string, precio:number, cantidad:number}} item
+ * @returns {void}
  */
-function addToCart(item) {
-    let carrito = loadCart();
-    const existingItem = carrito.find(i => i.nombre === item.nombre);
+const addToCart = (item) => {
+  const limpio = {
+    nombre: String(item?.nombre ?? "").trim(),
+    precio: Number(item?.precio ?? 0),
+    cantidad: Math.max(1, Number(item?.cantidad ?? 1)),
+  };
+  if (!limpio.nombre || !Number.isFinite(limpio.precio)) return;
 
-    if (existingItem) {
-        existingItem.cantidad += item.cantidad;
-    } else {
-        carrito.push(item);
-    }
-    
-    saveCart(carrito);
-}
+  const carrito = loadCart();
+  const existing = carrito.find((i) => i.nombre === limpio.nombre);
+  if (existing) existing.cantidad += limpio.cantidad;
+  else carrito.push(limpio);
 
+  saveCart(carrito);
+};
 
-// ===================================================================
-// Lógica que se ejecuta cuando el DOM está completamente cargado
-// ===================================================================
+// Disponible globalmente si lo necesitás en otras páginas
+window.addToCart = addToCart;
+
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. Inicializar Menú ---
+  // Menú hamburguesa
   const menuBtn = document.getElementById("menu-btn");
   const menu = document.getElementById("menu");
   if (menuBtn && menu) {
+    menuBtn.setAttribute("aria-label", "Abrir menú de navegación");
+    menuBtn.setAttribute("aria-expanded", "false");
+
     menuBtn.addEventListener("click", () => {
-      menu.classList.toggle("activo");
+      const isOpen = menu.classList.toggle("activo");
+      menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
     document.addEventListener("click", (e) => {
       if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
         menu.classList.remove("activo");
+        menuBtn.setAttribute("aria-expanded", "false");
       }
     });
   }
 
+  // Carrito modal
+  const carritoIcon = document.querySelector(".carrito");
+  const carritoModal = document.getElementById("carrito-modal");
+  const btnCerrar = document.getElementById("cerrar-carrito");
+  const finalizarCompraBtn = document.getElementById("finalizar-compra");
+  const carritoLista = document.getElementById("carrito-lista");
 
-  // --- 2. Inicializar Eventos del Carrito (Asume que el modal HTML existe) ---
-  const carritoIcon = document.querySelector('.carrito');
-  const carritoModal = document.getElementById('carrito-modal');
-  
+  if (carritoModal) {
+    carritoModal.setAttribute("role", "dialog");
+    carritoModal.setAttribute("aria-modal", "true");
+    carritoModal.setAttribute("aria-hidden", "true");
+  }
+
+  let lastFocus = null;
+
+  /**
+   * Abre el modal del carrito.
+   * @returns {void}
+   */
+  const openCart = () => {
+    if (!carritoModal) return;
+    renderCart();
+    lastFocus = document.activeElement;
+    carritoModal.classList.remove("oculto");
+    carritoModal.setAttribute("aria-hidden", "false");
+    if (btnCerrar) btnCerrar.focus();
+  };
+
+  /**
+   * Cierra el modal del carrito.
+   * @returns {void}
+   */
+  const closeCart = () => {
+    if (!carritoModal) return;
+    carritoModal.classList.add("oculto");
+    carritoModal.setAttribute("aria-hidden", "true");
+    if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+  };
+
   if (carritoIcon && carritoModal) {
-    // Evento para MOSTRAR/OCULTAR el modal
-    carritoIcon.addEventListener('click', () => {
-      renderCart(); // Carga y dibuja el contenido antes de mostrar
-      carritoModal.classList.toggle('oculto');
+    carritoIcon.setAttribute("tabindex", "0");
+    carritoIcon.addEventListener("click", openCart);
+    carritoIcon.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openCart();
+      }
     });
 
-    // Evento de CERRAR el modal
-    const btnCerrar = document.getElementById('cerrar-carrito');
-    if (btnCerrar) {
-      btnCerrar.addEventListener('click', () => {
-        carritoModal.classList.add('oculto');
-      });
-    }
-    
-    // Evento de FINALIZAR COMPRA
-    const finalizarCompraBtn = document.getElementById('finalizar-compra');
+    if (btnCerrar) btnCerrar.addEventListener("click", closeCart);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !carritoModal.classList.contains("oculto")) {
+        closeCart();
+      }
+    });
+
     if (finalizarCompraBtn) {
-      finalizarCompraBtn.addEventListener('click', () => {
+      finalizarCompraBtn.addEventListener("click", () => {
         if (loadCart().length > 0) {
-          window.location.href = 'checkout.html';
+          window.location.href = "checkout.html";
         } else {
-          alert('Tu carrito está vacío. ¡Añade tu primera prenda!');
+          alert("Tu carrito está vacío. ¡Añadí tu primera prenda!");
         }
       });
     }
+
+    if (carritoLista) {
+      carritoLista.addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-index]");
+        if (!btn) return;
+
+        const idx = Number(btn.dataset.index);
+        let carrito = loadCart();
+
+        if (btn.classList.contains("eliminar-item")) {
+          carrito.splice(idx, 1);
+        } else if (btn.classList.contains("cantidad-mas")) {
+          carrito[idx].cantidad += 1;
+        } else if (btn.classList.contains("cantidad-menos")) {
+          carrito[idx].cantidad = Math.max(1, Number(carrito[idx].cantidad) - 1);
+        } else {
+          return;
+        }
+
+        saveCart(carrito);
+        renderCart();
+      });
+    }
   }
 
-
-  // --- 3. Eventos de manipulación dentro del carrito (Añadir/Quitar) ---
-  const carritoLista = document.getElementById("carrito-lista");
-  if (carritoLista) {
-    carritoLista.addEventListener("click", (e) => {
-      if (e.target.dataset.index !== undefined) {
-          let carrito = loadCart();
-          const idx = Number(e.target.dataset.index);
-
-          if (e.target.classList.contains("eliminar-item")) {
-            carrito.splice(idx, 1);
-          } else if (e.target.classList.contains("cantidad-mas")) {
-            carrito[idx].cantidad += 1;
-          } else if (e.target.classList.contains("cantidad-menos")) {
-            carrito[idx].cantidad = Math.max(1, carrito[idx].cantidad - 1);
-          }
-          
-          saveCart(carrito);
-          renderCart();
-      }
-    });
-  }
-  
-  // --- 4. Inicialización Final (Actualiza el contador al cargar) ---
+  // Badge inicial
   updateCartBadge(loadCart());
 });

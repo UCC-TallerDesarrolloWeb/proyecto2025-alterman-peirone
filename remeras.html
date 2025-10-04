@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Remeras - CrewLab</title>
-  <link rel="icon" href="FAVICON/favicon-32x32.png" type="image/png">
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Metadatos -->
+  <meta name="author" content="Ivo Alterman y German Peirone" />
+  <meta name="description" content="Remeras CrewLab: básicos y diseños urbanos en todos los talles." />
+  <meta name="keywords" content="remeras, remeras oversize, remeras urbanas, moda urbana, CrewLab" />
+
+  <link rel="icon" href="FAVICON/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header>
-    <a href="index.html" class="logo">CrewLab</a>
+    <a href="index.html" class="logo" aria-label="CrewLab, ir al inicio">CrewLab</a>
+
     <div class="acciones">
-      <div class="carrito">🛒</div>
-      <div class="menu-hamburguesa" id="menu-btn">☰</div>
+      <!-- Botón carrito accesible -->
+      <button class="carrito" type="button" aria-haspopup="dialog" aria-controls="carrito-modal" aria-label="Abrir carrito">🛒</button>
+      <!-- Botón menú accesible -->
+      <button class="menu-hamburguesa" id="menu-btn" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">☰</button>
     </div>
-    <nav class="menu-desplegable" id="menu">
+
+    <nav class="menu-desplegable" id="menu" aria-label="Categorías">
       <ul>
-        <li><a href="remeras.html">Remeras</a></li>
+        <li><a href="remeras.html" aria-current="page">Remeras</a></li>
         <li><a href="buzos.html">Buzos</a></li>
         <li><a href="pantalones.html">Pantalones</a></li>
         <li><a href="zapatillas.html">Zapatillas</a></li>
@@ -26,110 +36,93 @@
 
   <main>
     <h1>Remeras</h1>
-    <section class="productos">
 
+    <section class="productos" aria-label="Listado de remeras">
       <!-- Producto 1 -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="REMERAS/Remera Azul Design.jpg" alt="Remera Azul Design" class="img-principal">
-          <img src="REMERAS/Remera Azul Design-Detras.jpg" alt="Remera Azul Design" class="img-hover">
+          <img src="REMERAS/Remera Azul Design.jpg" alt="Remera Azul Design" class="img-principal" loading="lazy" />
+          <img src="REMERAS/Remera Azul Design-Detras.jpg" alt="Remera Azul Design vista posterior" class="img-hover" loading="lazy" />
         </div>
         <h2>Remera Azul Design</h2>
         <p>$30.000</p>
-
-        <a href="productos.html?id=1" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Remera Azul Design" data-precio="30000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=1" class="ver-mas" aria-label="Ver más sobre Remera Azul Design">Ver más</a>
+      </article>
 
       <!-- Producto 2 -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="REMERAS/Remera Blanca Basic.jpg" alt="Remera Blanca Basic" class="img-principal">
-          <img src="REMERAS/Remera Blanca Basic-Perfil.jpg" alt="Remera Blanca Basic" class="img-hover">
+          <img src="REMERAS/Remera Blanca Basic.jpg" alt="Remera Blanca Basic" class="img-principal" loading="lazy" />
+          <img src="REMERAS/Remera Blanca Basic-Perfil.jpg" alt="Remera Blanca Basic vista de perfil" class="img-hover" loading="lazy" />
         </div>
         <h2>Remera Blanca Basic</h2>
         <p>$33.000</p>
-
-        <a href="productos.html?id=2" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Remera Blanca Basic" data-precio="33000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=2" class="ver-mas" aria-label="Ver más sobre Remera Blanca Basic">Ver más</a>
+      </article>
 
       <!-- Producto 3 -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="REMERAS/Remera Crema Simply.jpg" alt="Remera Crema Simply" class="img-principal">
-          <img src="REMERAS/Remera Crema Simply-Detras.jpg" alt="Remera Crema Simply" class="img-hover">
+          <img src="REMERAS/Remera Crema Simply.jpg" alt="Remera Crema Simply" class="img-principal" loading="lazy" />
+          <img src="REMERAS/Remera Crema Simply-Detras.jpg" alt="Remera Crema Simply vista posterior" class="img-hover" loading="lazy" />
         </div>
         <h2>Remera Crema Simply</h2>
         <p>$37.000</p>
-
-        <a href="productos.html?id=3" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Remera Crema Simply" data-precio="37000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=3" class="ver-mas" aria-label="Ver más sobre Remera Crema Simply">Ver más</a>
+      </article>
 
       <!-- Producto 4 -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="REMERAS/Remera Gris over-estampada.jpg" alt="Remera Gris over-estampada" class="img-principal">
-          <img src="REMERAS/Remera gris over-estampada-detras.png" alt="Remera Gris over-estampada" class="img-hover">
+          <img src="REMERAS/Remera Gris over-estampada.jpg" alt="Remera Gris over-estampada" class="img-principal" loading="lazy" />
+          <!-- Asegurate que el nombre de archivo coincida exactamente (mayúsculas/minúsculas) -->
+          <img src="REMERAS/Remera Gris over-estampada-detras.png" alt="Remera Gris over-estampada vista posterior" class="img-hover" loading="lazy" />
         </div>
         <h2>Remera Gris over-estampada</h2>
         <p>$41.000</p>
-
-        <a href="productos.html?id=4" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Remera Gris over-estampada" data-precio="41000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=4" class="ver-mas" aria-label="Ver más sobre Remera Gris over-estampada">Ver más</a>
+      </article>
 
       <!-- Producto 5 -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="REMERAS/Remera Negra Basic.jpg" alt="Remera Negra Basic" class="img-principal">
-          <img src="REMERAS/Remera Negra Basic-Detras.jpg" alt="Remera Negra Basic" class="img-hover">
+          <img src="REMERAS/Remera Negra Basic.jpg" alt="Remera Negra Basic" class="img-principal" loading="lazy" />
+          <img src="REMERAS/Remera Negra Basic-Detras.jpg" alt="Remera Negra Basic vista posterior" class="img-hover" loading="lazy" />
         </div>
         <h2>Remera Negra Basic</h2>
         <p>$45.000</p>
-
-        <a href="productos.html?id=5" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Remera Negra Basic" data-precio="45000">
-          Agregar al carrito
-        </button>
-      </div>
+        <a href="productos.html?id=5" class="ver-mas" aria-label="Ver más sobre Remera Negra Basic">Ver más</a>
+      </article>
 
       <!-- Producto 6 -->
-      <div class="producto">
+      <article class="producto">
         <div class="producto-img">
-          <img src="REMERAS/Remera Negra Simply.jpg" alt="Remera Negra Simply" class="img-principal">
-          <img src="REMERAS/Remera Negra Simply-Detras.jpg" alt="Remera Negra Simply" class="img-hover">
+          <img src="REMERAS/Remera Negra Simply.jpg" alt="Remera Negra Simply" class="img-principal" loading="lazy" />
+          <img src="REMERAS/Remera Negra Simply-Detras.jpg" alt="Remera Negra Simply vista posterior" class="img-hover" loading="lazy" />
         </div>
         <h2>Remera Negra Simply</h2>
         <p>$50.000</p>
-
-        <a href="productos.html?id=6" class="ver-mas">Ver más</a>
-
-        <button class="add-to-cart" data-nombre="Remera Negra Simply" data-precio="50000">
-          Agregar al carrito
-        </button>
-      </div>
-
+        <a href="productos.html?id=6" class="ver-mas" aria-label="Ver más sobre Remera Negra Simply">Ver más</a>
+      </article>
     </section>
   </main>
 
   <footer>
     <p>© 2025 CrewLab - Todos los derechos reservados</p>
   </footer>
+
+  <!-- Modal del carrito (igual que en inicio para que funcione en todas las páginas) -->
+  <div id="carrito-modal" class="carrito-modal oculto" role="dialog" aria-modal="true" aria-labelledby="titulo-carrito">
+    <div class="carrito-contenido">
+      <h2 id="titulo-carrito">Tu Carrito</h2>
+      <ul id="carrito-lista"></ul>
+      <p id="carrito-total">Total: $0</p>
+      <div class="carrito-botones">
+        <button id="cerrar-carrito" type="button">Cerrar</button>
+        <button id="finalizar-compra" type="button">Finalizar Compra</button>
+      </div>
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>
