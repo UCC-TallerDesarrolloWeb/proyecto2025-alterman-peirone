@@ -1,6 +1,6 @@
 # 🧢 CrewLab — Tienda de ropa urbana
 
-**Repo** : https://github.com/UCC-TallerDesarrolloWeb/proyecto2025-alterman-peirone/tree/main
+**Sitio Web** : https://ucc-tallerdesarrolloweb.github.io/proyecto2025-alterman-peirone/
 ## 📋 Índice
 
 - [Descripción del Proyecto](#descripción-del-proyecto)
