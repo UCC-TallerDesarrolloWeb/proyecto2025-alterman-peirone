@@ -56,10 +56,12 @@ const renderCartSummary = () => {
     const linea = document.createElement("li");
     const lineaSubtotal = item.precio * item.cantidad;
     subtotal += lineaSubtotal;
+
     linea.innerHTML = `
       <span>${item.nombre} (x${item.cantidad})</span>
       <strong>$${lineaSubtotal.toLocaleString("es-AR")}</strong>
     `;
+
     lista.appendChild(linea);
   });
 
@@ -77,37 +79,56 @@ const updateTotalsUI = (subtotal, shipping) => {
     "Total final: $" + totalFinal.toLocaleString("es-AR");
 };
 
-/* ----- Validaciones ----- */
+/* =========================================================
+ * VALIDACIONES
+ * =======================================================*/
+
 const validateRequired = (el, mensaje) => {
   const val = (el.value || "").toString().trim();
   if (!val) {
     alert(mensaje);
-    el.value = "";
     el.focus();
     return false;
   }
   return true;
 };
 
+const validateSoloLetras = (el, mensaje) => {
+  const val = (el.value || "").trim();
+  const ok = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(val);
+
+  if (!ok) {
+    alert(mensaje);
+    el.value = "";
+    el.focus();
+  }
+
+  return ok;
+};
+
 const validateDNI = (el) => {
   const val = (el.value || "").trim();
   const ok = /^\d{7,10}$/.test(val);
+
   if (!ok) {
     alert("Ingresá un DNI válido (solo números, 7 a 10 dígitos).");
     el.value = "";
     el.focus();
   }
+
   return ok;
 };
 
 const validateNumero = (el) => {
   const val = Number((el.value || "").trim());
   const ok = !Number.isNaN(val) && val > 0;
+
   if (!ok) {
     alert("Ingresá un número válido para la dirección.");
     el.value = "";
     el.focus();
   }
+
   return ok;
 };
 
@@ -118,36 +139,29 @@ const validateForm = () => {
     return false;
   }
 
-  const okNombre = validateRequired($("nombre"), "El nombre es obligatorio.");
-  if (!okNombre) return false;
+  if (!validateRequired($("nombre"), "El nombre es obligatorio.")) return false;
+  if (!validateSoloLetras($("nombre"), "El nombre solo puede contener letras.")) return false;
 
-  const okApellido = validateRequired($("apellido"), "El apellido es obligatorio.");
-  if (!okApellido) return false;
+  if (!validateRequired($("apellido"), "El apellido es obligatorio.")) return false;
+  if (!validateSoloLetras($("apellido"), "El apellido solo puede contener letras.")) return false;
 
-  const okDNIReq = validateRequired($("dni"), "El DNI es obligatorio.");
-  if (!okDNIReq) return false;
-  const okDNI = validateDNI($("dni"));
-  if (!okDNI) return false;
+  if (!validateRequired($("dni"), "El DNI es obligatorio.")) return false;
+  if (!validateDNI($("dni"))) return false;
 
-  const okGenero = validateRequired($("genero"), "Seleccioná tu género.");
-  if (!okGenero) return false;
+  if (!validateRequired($("genero"), "Seleccioná tu género.")) return false;
 
-  const okCalle = validateRequired($("calle"), "La calle es obligatoria.");
-  if (!okCalle) return false;
+  if (!validateRequired($("calle"), "La calle es obligatoria.")) return false;
+  if (!validateSoloLetras($("calle"), "La calle solo puede contener letras.")) return false;
 
-  const okNumeroReq = validateRequired($("numero"), "El número de la dirección es obligatorio.");
-  if (!okNumeroReq) return false;
-  const okNumero = validateNumero($("numero"));
-  if (!okNumero) return false;
+  if (!validateRequired($("numero"), "El número de la dirección es obligatorio.")) return false;
+  if (!validateNumero($("numero"))) return false;
 
-  const okCP = validateRequired($("cp"), "El código postal es obligatorio.");
-  if (!okCP) return false;
+  if (!validateRequired($("cp"), "El código postal es obligatorio.")) return false;
 
-  const okCiudad = validateRequired($("ciudad"), "La ciudad es obligatoria.");
-  if (!okCiudad) return false;
+  if (!validateRequired($("ciudad"), "La ciudad es obligatoria.")) return false;
+  if (!validateSoloLetras($("ciudad"), "La ciudad solo puede contener letras.")) return false;
 
-  const okProv = validateRequired($("provincia"), "Seleccioná una provincia.");
-  if (!okProv) return false;
+  if (!validateRequired($("provincia"), "Seleccioná una provincia.")) return false;
 
   if (getShippingMethod() === "express" && $("provincia").value !== "Córdoba") {
     alert('El "Envío Express" está disponible solo para la provincia de Córdoba.');
@@ -164,7 +178,10 @@ const recalcAndRenderTotals = () => {
   updateTotalsUI(subtotal, shipping);
 };
 
-/* ----- Inicio ----- */
+/* =========================================================
+ * INICIO
+ * =======================================================*/
+
 document.addEventListener("DOMContentLoaded", () => {
   recalcAndRenderTotals();
 
@@ -179,6 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+
       if (validateForm()) {
         alert("¡Gracias por tu compra! Te enviaremos la confirmación por email.");
       }
@@ -186,8 +204,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const dni = $("dni");
-  if (dni) dni.addEventListener("blur", () => { if (dni.value) validateDNI(dni); });
+  if (dni) {
+    dni.addEventListener("blur", () => {
+      if (dni.value) validateDNI(dni);
+    });
+  }
 
   const numero = $("numero");
-  if (numero) numero.addEventListener("blur", () => { if (numero.value) validateNumero(numero); });
+  if (numero) {
+    numero.addEventListener("blur", () => {
+      if (numero.value) validateNumero(numero);
+    });
+  }
 });
